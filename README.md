@@ -1,93 +1,64 @@
-# Stack-Implementation
-# Stack Implementation in C++
-
-## Overview
-
-This repository contains two implementations of a Stack:
-1. **Stack Implementation Using Array**
-2. **Stack Implementation Using C++ STL (Standard Template Library)**
-
-A stack is a linear data structure that follows the **Last-In-First-Out (LIFO)** principle, where the element inserted last will be the first to be removed. Stacks are used in various applications such as recursive algorithms, expression evaluation, and memory management.
-
-## Stack Implementations
-
-### 1. Stack Implementation Using Array
-
-#### Description
-In this implementation, the stack is manually managed using an array. A pointer, `top`, keeps track of the index of the last element inserted into the stack.
-
-#### Operations Supported
-- **Push**: Adds an element to the top of the stack.
-- **Pop**: Removes the top element from the stack.
-- **Peek**: Returns the top element without removing it.
-- **isFull and isEmpty**: Checks if the stack is full or empty.
-
-#### Algorithm
-
-- **Push Operation**:
-  1. Check if the stack is full (`top == size - 1`).
-  2. If not full, increment `top` and insert the new element at `arr[top]`.
-
-- **Pop Operation**:
-  1. Check if the stack is empty (`top == -1`).
-  2. If not empty, remove the element at `arr[top]` and decrement `top`.
-
-- **Peek Operation**:
-  1. Check if the stack is empty.
-  2. If not empty, return the element at `arr[top]`.
-
-- **isFull / isEmpty**:
-  - `isFull`: Returns true if `top == size - 1`.
-  - `isEmpty`: Returns true if `top == -1`.
-
-#### Time Complexity
-- **Push**: O(1)
-- **Pop**: O(1)
-- **Peek**: O(1)
-
-### 2. Stack Implementation Using C++ STL
-
-#### Description
-The C++ Standard Template Library (STL) provides a built-in stack class, making stack implementation simpler and safer. Memory management is handled internally, offering easy-to-use functions to manipulate the stack.
-
-#### Operations Supported
-- **push**: Adds an element to the top of the stack.
-- **pop**: Removes the top element from the stack.
-- **top**: Returns the top element without removing it.
-- **empty**: Checks if the stack is empty.
-
-#### Algorithm
-
-- **Push Operation (push)**:
-  1. Use `st.push(value)` to insert an element at the top of the stack.
-
-- **Pop Operation (pop)**:
-  1. Use `st.pop()` to remove the top element from the stack.
-
-- **Access Top Element (top)**:
-  1. Use `st.top()` to retrieve the element at the top of the stack without removing it.
-
-- **Check If Stack is Empty**:
-  1. Use `st.empty()` to check if the stack is empty.
-
-#### Time Complexity
-- **Push**: O(1)
-- **Pop**: O(1)
-- **Top**: O(1)
-
-## Usage
-
-### Stack Using Array
-To use the stack implemented using arrays, simply run the code and call the functions for push, pop, peek, and checking if the stack is full or empty.
-
-### Stack Using C++ STL
-Using the STL stack is straightforward. Create a stack object and utilize the in-built functions like `push()`, `pop()`, and `top()`.
-
-```cpp
-#include <stack>
-
-std::stack<int> st;
-st.push(5);
-st.push(10);
-st.top(); // Returns 10
-st.pop(); // Removes 10
+<h1>Stack Implementations in C++</h1>
+    <h2>Aim</h2>
+    <p>
+        To implement and study two methods for handling stacks in C++: one using a custom array-based approach and another using the C++ Standard Template Library (STL). This experiment highlights the differences between manual implementation and the convenience provided by STL.
+    </p>
+    <h2>Theory</h2>
+    <p>
+        A stack is a linear data structure that follows the Last In, First Out (LIFO) principle. Elements can be added or removed only from one end, referred to as the top of the stack. Stacks can be implemented using arrays, linked lists, or libraries like the C++ Standard Template Library (STL).
+    </p>
+    <p>
+        Key operations of a stack include:
+    </p>
+    <ul>
+        <li><strong>Push</strong>: Adding an element to the top of the stack.</li>
+        <li><strong>Pop</strong>: Removing the element at the top of the stack.</li>
+        <li><strong>Peek</strong>: Accessing the element at the top without removing it.</li>
+    </ul>
+    <h2>Algorithms</h2>
+    <h3>Array-Based Stack</h3>
+    <ol>
+        <li>Initialize the stack with a given capacity.</li>
+        <li>Set the top pointer to -1, indicating an empty stack.</li>
+        <li>To <b>push</b> an element:
+            <ul>
+                <li>If the stack is full (top equals capacity - 1), print a stack overflow message.</li>
+                <li>Otherwise, increment the top pointer and insert the element at the new top position.</li>
+            </ul>
+        </li>
+        <li>To <b>pop</b> an element:
+            <ul>
+                <li>If the stack is empty (top is -1), print a stack underflow message.</li>
+                <li>Otherwise, decrement the top pointer to remove the element at the top.</li>
+            </ul>
+        </li>
+        <li>To <b>peek</b> at the top element, return the element at the top pointer unless the stack is empty.</li>
+    </ol>
+    <h3>STL-Based Stack</h3>
+    <ol>
+        <li>Initialize an empty stack using the <code>std::stack</code> from C++ STL.</li>
+        <li>To <b>push</b> an element:
+            <ul>
+                <li>Use the <code>push()</code> function to add elements to the top of the stack.</li>
+            </ul>
+        </li>
+        <li>To <b>pop</b> an element:
+            <ul>
+                <li>Use the <code>pop()</code> function to remove the top element of the stack.</li>
+            </ul>
+        </li>
+        <li>To <b>peek</b> at the top element:
+            <ul>
+                <li>Use the <code>top()</code> function to access the top element without removing it.</li>
+            </ul>
+        </li>
+    </ol>
+    <h2>Explanation</h2>
+    <h3>Array-Based Stack</h3>
+    <p>
+        This implementation manually manages all the core stack operations using arrays. The stack has a fixed size, and we keep track of the top element using a pointer. This approach gives more control but requires careful handling of boundary conditions such as overflow and underflow.
+    </p>
+    <h3>STL-Based Stack</h3>
+    <p>
+        The STL-based stack uses the C++ Standard Library, providing a more straightforward and flexible approach. It abstracts the internal details of the stack, handling dynamic resizing and boundary conditions internally, making the code easier to manage.
+    </p>
